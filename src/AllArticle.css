@@ -5,7 +5,19 @@
     font-family: 'Poppins', Arial, sans-serif;
     min-height: 100vh;
 }
+.spanStyle  {
+    padding: 20px;
+    background-color: #f9fafc;
+    color: #000000  }
+  
+  .divStyle  {
+    display: flex;
+  gap: 8px;
+    justify-content: space-between ;
 
+    color: lightgray;
+
+  }
 .page-title {
     font-size: 36px;
     text-align: center;
@@ -32,7 +44,7 @@
     transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .card:hover {
@@ -43,7 +55,7 @@
 /* Card Image */
 .card-image {
     width: 100%;
-    height: 180px;
+  
     object-fit: cover;
     border-bottom: 1px solid #f0f0f0;
 }
@@ -59,12 +71,42 @@
 .card-title {
     font-size: 18px;
     color: #2c3e50;
+    background-color: white !important;
     font-weight: 600;
+    text-align: left;
+    padding: 16px 0 0px 0
+    ;margin: 0;
 }
-
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  
+  /* Bottom left text */
+  .bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+  }
+  
+  /* Top left text */
+  .top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    background: grey;
+    padding: 1rem;
+border-top-left-radius: 24px;
+border-top-right-radius: 24px;
+border-bottom-left-radius: 24px;
+border-bottom-right-radius: 24px;
+  }
+  .carousel .slider-wrapper.axis-horizontal .slider{}
 .card-category {
     font-size: 14px;
     color: #636e72;
+    margin: 0;
 }
 
 .card-text {

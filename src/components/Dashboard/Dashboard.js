@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AddArticle from '../../AddArticle';
 import './AdminDashboard.css';
 import Article from '../../AllArticle';
+import 'react-slideshow-image/dist/styles.css'
 
 const AdminDashboard = () => {
     const [currentView, setCurrentView] = useState('articles'); // Manage current view (AddArticle or Articles List)

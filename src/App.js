@@ -1,20 +1,19 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
   Navigate,
+  Route,
+  BrowserRouter as Router,
+  Routes,
 } from "react-router-dom";
 import AddArticle from "./AddArticle";
-import AllArticles from "./components/Home/AllArticles";
-import Home from "./components/Home/Home";
-import ArticlesCarousel from "./components/Home/Article";
-import StatSection from "./components/Home/stats";
-import About from "./components/About/About";
-import Event from "./components/events/event";
 import Article from "./AllArticle";
-import Login from "./components/Dashboard/Login";
+import About from "./components/About/About";
 import AdminDashboard from "./components/Dashboard/Dashboard";
+import Login from "./components/Dashboard/Login";
+import Event from "./components/events/event";
+import ArticlesCarousel from "./components/Home/Article";
+import Home from "./components/Home/Home";
+import StatSection from "./components/Home/stats";
 
 function App() {
   return (
