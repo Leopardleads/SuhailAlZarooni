@@ -6,9 +6,10 @@ import { Modal } from "antd";
 
 const Article = () => {
   const [articles, setArticles] = useState([]);
+  const [filterArticle, setFitlerArticle] = useState([]);
   const [content, setContent] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+    const [category, setCategory] = useState('');
   const showModal = (val) => {
     setContent(val)
     setIsModalOpen(true);
@@ -27,6 +28,7 @@ const Article = () => {
     try {
       const response = await axios.get("http://localhost:5000/articles");
       setArticles(response.data.data);
+      setFitlerArticle(response.data.data);
     } catch (error) {
       console.error("Error fetching articles:", error);
     }
@@ -47,6 +49,13 @@ const Article = () => {
   useEffect(() => {
     fetchArticles();
   }, []);
+  const handleCategory=(val)=>{
+    const filterList=articles.filter((item)=>item.category===val)
+    setCategory(val)
+    console.log(val,filterList)
+    // setArticles(filterList)
+    setFitlerArticle(filterList)
+  }
 console.log(articles)
 
   return (
@@ -55,13 +64,39 @@ console.log(articles)
   
     <div className="article-container">
     <h1 className="page-title">All Articles</h1>
+    <div className="flexContainer"> 
 
+<div className="article-form-group">
+    <label htmlFor="category" className="article-label">Category</label>
+    <select
+        className="article-select"
+        id="category"
+        value={category}
+        onChange={(e) => handleCategory(e.target.value)}
+        required
+    >
+        <option value="">Select Category</option>
+        <option value="event">Event</option>
+        <option value="foundation">Foundation</option>
+        <option value="collection">Collection</option>
+        <option value="museum">Museum</option>
+        <option value="media">Media</option>
+        <option value="guest">Guest</option>
+        <option value="about">About Us</option>
+        <option value="bollywood">Bollywood</option>
+        <option value="hollywood">Hollywood</option>
+        <option value="pakistani">Pakistani</option>
+        <option value="update">Update</option>
+    </select>
+</div>
+
+</div>
       <div class="Allcontainer">
-      {articles.map((article) => (
+      {filterArticle.map((article) => (
   <div class="card">
     <div class="card__header" onClick={()=>showModal(article.content)}>
       <img   src={article.imageUrl}
-              alt={article.title} class="card__image" width="600"/>
+              alt={article.title} class="card__image" width="100%"/>
     </div>
     <div class="card__body" onClick={()=>showModal(article.content)}>
       <span class="tag tag-blue">{article.category}</span>
@@ -93,6 +128,8 @@ console.log(articles)
       </div>
     </div>
   </div>))}
+  {filterArticle.length===0&&
+  <h1>No Article Found</h1>}
   </div>
     </div>
     <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
