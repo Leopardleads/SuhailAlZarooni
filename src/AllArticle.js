@@ -2,9 +2,25 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "react-slideshow-image/dist/styles.css";
 import "./AllArticle.css";
+import { Modal } from "antd";
 
 const Article = () => {
   const [articles, setArticles] = useState([]);
+  const [content, setContent] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = (val) => {
+    setContent(val)
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   // Fetch articles from the server
   const fetchArticles = async () => {
@@ -39,43 +55,52 @@ const Article = () => {
   
     <div className="article-container">
     <h1 className="page-title">All Articles</h1>
-      <div className="cards-container">
-        {articles.map((article) => (
-          <div key={article._id} className="card">
-            <div class="container">
-            <img
-              src={article.imageUrl}
-              alt={article.title}
-              className="card-image"
-            />
 
-  <div class="top-left">{article.category}</div>
-
-</div>
-           
-            
-            <div className="card-content">
-            <div className="divStyle">
-              <h4>{article.createdAt?.split("T")[0]}</h4>
-              <h4>10 mins read</h4>
-            </div>
-              <h2 className="card-title">{article.title}</h2>
-              {/* <p className="card-category">Category: {article.category}</p> */}
-              {/* <div
-                className="card-text"
-                dangerouslySetInnerHTML={{__html: article.content}}
-              /> */}
+      <div class="Allcontainer">
+      {articles.map((article) => (
+  <div class="card">
+    <div class="card__header" onClick={()=>showModal(article.content)}>
+      <img   src={article.imageUrl}
+              alt={article.title} class="card__image" width="600"/>
+    </div>
+    <div class="card__body" onClick={()=>showModal(article.content)}>
+      <span class="tag tag-blue">{article.category}</span>
+      <h4>{article.title}</h4>
+    
+      {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea atque quidem!</p> */}
+    </div>
+    <div className="buttonAlign">
+      <button
+                className="delete-button"
+                onClick={() => deleteArticle(article._id)}
+              >
+                 Delete
+              </button>
               <button
                 className="delete-button"
                 onClick={() => deleteArticle(article._id)}
               >
-                🗑 Delete
+                Approve
               </button>
-            </div>
-          </div>
-        ))}
+              </div>
+    <div class="card__footer">
+      <div class="user">
+        <img src="https://i.pravatar.cc/40?img=1" alt="user__image" class="user__image"/>
+        <div class="user__info">
+          <h5>Jane Doe</h5>
+          <small>2h ago</small>
+        </div>
       </div>
     </div>
+  </div>))}
+  </div>
+    </div>
+    <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+    <div
+               
+                dangerouslySetInnerHTML={{__html: content}}
+              />
+      </Modal>
     </>
   );
 };

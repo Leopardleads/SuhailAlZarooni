@@ -4,10 +4,40 @@
     font-family: 'Roboto', Arial, sans-serif;
     background-color: #f4f5f7; /* Light background for contrast */
 }
+.selected{
+    background: white;
+    width: 90%;
 
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: left;
+    padding: 12px 20px;
+    display: flex
+    ;
+       
+        gap: 1rem;
+    border: none;
+    cursor: pointer;
+    margin: 8px 0;
+    border-left: 4px solid transparent; /* Add accent when active */
+    transition: all 0.3s ease;
+    color: black !important;
+}
+.logo
+{
+    /* background-color: rgb(0, 0, 0); */
+    color: rgb(255, 255, 255);
+    border-bottom: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    width: 100%;
+}
 /* Sidebar Styling */
 .sidebar {
-    width: 260px;
+    width: 300px;
     background-color: #1e2a38;
     display: flex;
     flex-direction: column;
@@ -40,6 +70,10 @@
     color: #ffffff;
     font-size: 18px;
     font-weight: 500;
+    display: flex
+    ;
+       
+        gap: 1rem;
     text-align: left;
     padding: 12px 20px;
     border: none;

@@ -32,6 +32,9 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
         category: { type: String, required: true },
         content: { type: String, required: true },
         imageUrl: { type: String, required: true },
+        metaTitle: { type: String, required: true },
+        metaDescription: { type: String, required: true },
+        focusKeyword: { type: String, required: true },
         createdAt: { type: Date, default: Date.now },
     });
     
@@ -39,11 +42,11 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
     
     app.post('/articles', async (req, res) => {
         try {
-            const { title, category, content } = req.body;
+            const { title, category, content,metaTitle,focusKeyword,metaDescription } = req.body;
             const imageFile = req.files?.image;
     
-            if (!title || !category || !content || !imageFile) {
-                return res.status(400).json({ message: 'Missing required fields: title, category, content, or image' });
+            if (!title || !category || !content || !imageFile||!metaTitle||!focusKeyword||!metaDescription) {
+                return res.status(400).json({ message: 'Missing required fields: title, category, content,meta title,meta description,focus keyword or image' });
             }
     
             const uploadResponse = await cloudinary.uploader.upload(imageFile.tempFilePath, {
@@ -55,6 +58,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
                 category,
                 content,
                 imageUrl: uploadResponse.secure_url,
+                metaDescription,metaTitle,focusKeyword
             });
     
             await newArticle.save();
