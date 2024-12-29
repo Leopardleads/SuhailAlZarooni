@@ -9,5 +9,18 @@
   align-items: center;
   flex-direction: column;
   gap: 8px;
+  padding: 1rem;
   
+}
+
+@media screen and (max-width:768px) {
+  .cardContainerPayment{
+      flex-direction: column;
+      gap: 20px;
+  }
+ .buttonDetailsPage{
+  width: 100%  !important;
+ } .headingPayment{
+  padding: 1rem;
+ }
 }

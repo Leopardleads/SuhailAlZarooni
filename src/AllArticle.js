@@ -47,7 +47,7 @@ const Article = () => {
   useEffect(() => {
     fetchArticles();
   }, []);
-
+console.log(articles)
 
   return (
     <>
@@ -88,7 +88,7 @@ const Article = () => {
         <img src="https://i.pravatar.cc/40?img=1" alt="user__image" class="user__image"/>
         <div class="user__info">
           <h5>Jane Doe</h5>
-          <small>2h ago</small>
+          <small>{article.createdAt.split("T")[0]}</small>
         </div>
       </div>
     </div>

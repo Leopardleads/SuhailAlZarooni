@@ -61,7 +61,7 @@ height: 100vh;
 
 .input_box input{
     width: 100%;
-    height: 45px;
+    /* height: 45px; */
     border: none;
     outline: none;
     border-radius: 5px;
@@ -123,12 +123,12 @@ form .gender{
 }
 
 .reg_btn{
-    padding: 25px;
-    margin: 15px 0;
+    /* padding: 25px; */
+    /* margin: 15px 0; */
 }
 
 .reg_btn input{
-    height: 45px;
+    /* height: 45px; */
     width: 100%;
     border: none;
     font-size: 18px;
@@ -148,7 +148,7 @@ form .gender{
 @media screen and (max-width: 584px){
 
     .user_details{
-        max-height: 340px;
+        /* max-height: 340px; */
         overflow-y: scroll;
     }
 

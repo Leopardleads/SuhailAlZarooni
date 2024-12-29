@@ -1,9 +1,7 @@
-import React, {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import { notification } from "antd";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Register.css";
-import {notification} from "antd";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faUser, faLock} from "@fortawesome/free-solid-svg-icons";
 import CustomizedSteppers from "./Stepper";
 const Register = () => {
   const [email, setEmail] = useState("");

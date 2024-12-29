@@ -78,8 +78,10 @@ const AccountDetails = ({setActiveStep}) => {
             </div>
           
             <div class="reg_btn">
-                <input type="submit" value="Register" className='buttonDetailsPage' onClick={()=>setActiveStep(1)}/>
-            </div>
+            <div className='flexBoxButton'> 
+                  <input type="submit" value="Next" className='' onClick={()=>setActiveStep(1)}/>
+                </div>
+		         </div>
         </form>
 		
 		

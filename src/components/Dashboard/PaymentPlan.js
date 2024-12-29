@@ -4,6 +4,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
+import './AccountDetails.css';
 import Typography from "@mui/material/Typography";
 import "./PaymentPlan.css";
 import {Divider} from "@mui/material";
@@ -20,7 +21,7 @@ export default function PaymentPlan({setActiveStep}) {
         </p>
       </div>
       <div className="cardContainerPayment">
-        <Card sx={{maxWidth: 400,padding:1}}>
+        <Card sx={{maxWidth:window.innerWidth>768? 400:"100%",padding:1,marginBottom:2}}>
           <CardContent>
             <Typography gutterBottom variant="h4" component="div">
               Contributor Account
@@ -37,10 +38,10 @@ export default function PaymentPlan({setActiveStep}) {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="medium" variant="contained" onClick={()=>setActiveStep(2)}>Choose Plan</Button>
+            <Button size="medium" variant="contained" >Choose Plan</Button>
           </CardActions>
         </Card>
-        <Card sx={{maxWidth: 400,padding:1}}>
+        <Card sx={{maxWidth:window.innerWidth>768? 400:"100%",padding:1,marginBottom:2}}>
           <CardContent>
             <Typography gutterBottom variant="h4" component="div">
           
@@ -55,10 +56,17 @@ Author Account
               </Typography>
           </CardContent>
           <CardActions>
-            <Button size="medium" variant="contained" onClick={()=>setActiveStep(2)}>Choose Plan</Button>
+            <Button size="medium" variant="contained" >Choose Plan</Button>
           </CardActions>
         </Card>
+       
+		
       </div>
+    
+      <div className='flexBoxButton reg_btn'> 
+                <input type="submit" value="Back" className='buttonDetailsPage' onClick={()=>setActiveStep(0)}/>
+                <input type="submit" value="Next" className='buttonDetailsPage' onClick={()=>setActiveStep(2)}/>
+                </div>
     </>
   );
 }

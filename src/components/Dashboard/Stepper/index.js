@@ -12,6 +12,7 @@ import VideoLabelIcon from '@mui/icons-material/VideoLabel';
 import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector';
 import AccountDetails from '../AccountDetails';
 import PaymentPlan from '../PaymentPlan';
+import CardDetails from '../CardDetails';
 
 const QontoConnector = styled(StepConnector)(({ theme }) => ({
     [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -192,7 +193,7 @@ export default function CustomizedSteppers() {
         :
         activeStep===1?
         <PaymentPlan setActiveStep={setActiveStep}/>
-        :""
+        :<CardDetails  setActiveStep={setActiveStep}/>
       }
     </Stack>
   );
